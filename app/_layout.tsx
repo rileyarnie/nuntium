@@ -6,6 +6,7 @@ import HomeIcon from "../components/icons/HomeIcon";
 import CategoriesIcon from "../components/icons/CategoriesIcon";
 import BookmarksIcon from "../components/icons/BookmarksIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
+import { COLORS } from "../constants/colors";
 
 type Props = {};
 
@@ -23,6 +24,7 @@ const RootLayout = (props: Props) => {
         headerStyle: {
           shadowColor: "transparent",
         },
+        tabBarActiveTintColor: COLORS.purplePrimary,
       }}
       initialRouteName="home"
     >
