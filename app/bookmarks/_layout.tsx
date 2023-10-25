@@ -6,7 +6,7 @@ type Props = {};
 
 const _layout = (props: Props) => {
   return (
-    <ScreenContainer>
+    <ScreenContainer title="Bookmarks" subtitle="Saved articles to the library">
       <Text>Bookmarks Screen</Text>
     </ScreenContainer>
   );
