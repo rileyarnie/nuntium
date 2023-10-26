@@ -8,10 +8,13 @@ import BookmarksIcon from "../components/icons/BookmarksIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
 import { COLORS } from "../constants/colors";
 import { useFonts } from "expo-font";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const unstable_settings = {
   initialRouteName: "home",
 };
+
+const queryClient = new QueryClient();
 
 SplashScreen.preventAutoHideAsync();
 
@@ -38,46 +41,48 @@ const RootLayout = () => {
   }
 
   return (
-    <Tabs
-      screenOptions={{
-        // tabBarLabelStyle: { display: "none" },
-        headerTitleStyle: { textTransform: "capitalize" },
-        headerStyle: {
-          shadowColor: "transparent",
-        },
-        tabBarActiveTintColor: COLORS.purplePrimary,
-      }}
-      initialRouteName="home"
-    >
-      <Tabs.Screen
-        name="home"
-        options={{
-          headerTitle: "",
-          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
+    <QueryClientProvider client={queryClient}>
+      <Tabs
+        screenOptions={{
+          // tabBarLabelStyle: { display: "none" },
+          headerTitleStyle: { textTransform: "capitalize" },
+          headerStyle: {
+            shadowColor: "transparent",
+          },
+          tabBarActiveTintColor: COLORS.purplePrimary,
         }}
-      />
-      <Tabs.Screen
-        name="categories"
-        options={{
-          headerTitle: "",
-          tabBarIcon: ({ color }) => <CategoriesIcon color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="bookmarks"
-        options={{
-          headerTitle: "",
-          tabBarIcon: ({ color }) => <BookmarksIcon color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          headerTitle: "",
-          tabBarIcon: ({ color }) => <ProfileIcon color={color} />,
-        }}
-      />
-    </Tabs>
+        initialRouteName="home"
+      >
+        <Tabs.Screen
+          name="home"
+          options={{
+            headerTitle: "",
+            tabBarIcon: ({ color }) => <HomeIcon color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="categories"
+          options={{
+            headerTitle: "",
+            tabBarIcon: ({ color }) => <CategoriesIcon color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="bookmarks"
+          options={{
+            headerTitle: "",
+            tabBarIcon: ({ color }) => <BookmarksIcon color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            headerTitle: "",
+            tabBarIcon: ({ color }) => <ProfileIcon color={color} />,
+          }}
+        />
+      </Tabs>
+    </QueryClientProvider>
   );
 };
 
