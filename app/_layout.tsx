@@ -1,21 +1,42 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Tabs, ErrorBoundary } from "expo-router";
+import { useEffect } from "react";
+import { Tabs, ErrorBoundary, SplashScreen } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import HomeIcon from "../components/icons/HomeIcon";
 import CategoriesIcon from "../components/icons/CategoriesIcon";
 import BookmarksIcon from "../components/icons/BookmarksIcon";
 import ProfileIcon from "../components/icons/ProfileIcon";
 import { COLORS } from "../constants/colors";
+import { useFonts } from "expo-font";
 
-type Props = {};
+export const unstable_settings = {
+  initialRouteName: "home",
+};
 
-// export const unstable_settings = {
-//   // Ensure that reloading on `/modal` keeps a back button present.
-//   initialRouteName: "home",
-// };
+SplashScreen.preventAutoHideAsync();
 
-const RootLayout = (props: Props) => {
+const RootLayout = () => {
+  const [loaded, error] = useFonts({
+    SFProBold: require("../assets/fonts/SF-Pro-Text-Bold.otf"),
+    SFPro: require("../assets/fonts/SF-Pro-Text-Regular.otf"),
+    SFProLight: require("../assets/fonts/SF-Pro-Text-Light.otf"),
+    SFProSemibold: require("../assets/fonts/SF-Pro-Text-Semibold.otf"),
+  });
+
+  useEffect(() => {
+    if (error) throw error;
+  }, [error]);
+
+  useEffect(() => {
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <Tabs
       screenOptions={{

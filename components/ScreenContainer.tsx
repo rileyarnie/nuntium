@@ -28,11 +28,12 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS.blackPrimary,
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "SFProBold",
     marginBottom: 8,
   },
   subTitle: {
     color: COLORS.grayPrimary,
     fontSize: 16,
+    fontFamily: "SFPro",
   },
 });
