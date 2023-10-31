@@ -1,12 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useEffect } from "react";
-import { Tabs, ErrorBoundary, SplashScreen } from "expo-router";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import HomeIcon from "../components/icons/HomeIcon";
-import CategoriesIcon from "../components/icons/CategoriesIcon";
-import BookmarksIcon from "../components/icons/BookmarksIcon";
-import ProfileIcon from "../components/icons/ProfileIcon";
-import { COLORS } from "../constants/colors";
+import { Tabs, ErrorBoundary, SplashScreen, Slot } from "expo-router";
 import { useFonts } from "expo-font";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -18,7 +12,7 @@ const queryClient = new QueryClient();
 
 SplashScreen.preventAutoHideAsync();
 
-const RootLayout = () => {
+export default () => {
   const [loaded, error] = useFonts({
     SFProBold: require("../assets/fonts/SF-Pro-Text-Bold.otf"),
     SFPro: require("../assets/fonts/SF-Pro-Text-Regular.otf"),
@@ -42,57 +36,7 @@ const RootLayout = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Tabs
-        screenOptions={{
-          // tabBarLabelStyle: { display: "none" },
-          headerTitleStyle: { textTransform: "capitalize" },
-          headerStyle: {
-            shadowColor: "transparent",
-          },
-          tabBarActiveTintColor: COLORS.purplePrimary,
-        }}
-        initialRouteName="home"
-      >
-        <Tabs.Screen
-          name="home"
-          options={{
-            headerTitle: "",
-            tabBarIcon: ({ color }) => <HomeIcon color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="categories"
-          options={{
-            headerTitle: "",
-            tabBarIcon: ({ color }) => <CategoriesIcon color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="bookmarks"
-          options={{
-            headerTitle: "",
-            tabBarIcon: ({ color }) => <BookmarksIcon color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="profile"
-          options={{
-            headerTitle: "",
-            tabBarIcon: ({ color }) => <ProfileIcon color={color} />,
-          }}
-        />
-      </Tabs>
+      <Slot />
     </QueryClientProvider>
   );
 };
-
-export default RootLayout;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#ff3f",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
