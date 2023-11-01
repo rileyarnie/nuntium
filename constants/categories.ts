@@ -1,52 +1,64 @@
-export type CategoryType = { id: number; title: string };
+export type CategoryType = { id: number; icon: string; title: string };
 
 export const Categories: CategoryType[] = [
   {
     id: 1,
-    title: "🏈 Sports",
+    icon: "🏈",
+    title: "Sports",
   },
   {
     id: 2,
-    title: "⚖️ Politics",
+    icon: "⚖️",
+    title: "Politics",
   },
   {
     id: 3,
-    title: "🌞 Life",
+    icon: "🌞",
+    title: "Life",
   },
   {
     id: 4,
-    title: "🎮 Gaming",
+    icon: "🎮",
+    title: "Gaming",
   },
   {
     id: 5,
-    title: "🐻 Animals",
+    icon: "🐻",
+    title: "Animals",
   },
   {
     id: 6,
-    title: "🌴 Nature",
+    icon: "🌴",
+    title: "Nature",
   },
   {
     id: 7,
-    title: "🍔 Food",
+    icon: "🍔",
+    title: "Food",
   },
   {
     id: 8,
-    title: "🎨 Art",
+    icon: "🎨",
+    title: "Art",
   },
   {
     id: 9,
-    title: "📜 History",
+    icon: "📜",
+    title: "History",
   },
   {
     id: 10,
-    title: "👗 Fashion",
+    icon: "👗",
+    title: "Fashion",
   },
   {
     id: 11,
-    title: "😷 Covid-19",
+    icon: "😷",
+    title: "Covid-19",
   },
   {
     id: 12,
-    title: "⚔️ Middle East",
+    icon: "⚔️ ",
+    title: " East",
   },
 ];
