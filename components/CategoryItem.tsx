@@ -1,15 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { CategoryType } from "../constants/categories";
 import { COLORS } from "../constants/colors";
+import { useRouter } from "expo-router";
 
 type Props = { category: CategoryType };
 
 const CategoryItem = ({ category }: Props) => {
+  const router = useRouter();
+
+  const handlePress = (categoryTitle: string) => {
+    router.push(`/categories/${categoryTitle}`);
+  };
+
   return (
-    <View style={styles.categoryItem}>
-      <Text style={styles.categoryTitle}>{category.title}</Text>
-    </View>
+    <Pressable
+      onPress={() => handlePress(category.title)}
+      style={styles.categoryItem}
+    >
+      <Text
+        style={styles.categoryTitle}
+      >{`${category.icon} ${category.title}`}</Text>
+    </Pressable>
   );
 };
 
