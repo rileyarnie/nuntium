@@ -9,13 +9,16 @@ type Props = { category: CategoryType };
 const CategoryItem = ({ category }: Props) => {
   const router = useRouter();
 
-  const handlePress = (categoryTitle: string) => {
-    router.push(`/categories/${categoryTitle}`);
+  const handlePress = (category: CategoryType) => {
+    router.push({
+      pathname: `/categories/[category]`,
+      params: { category: category.title },
+    });
   };
 
   return (
     <Pressable
-      onPress={() => handlePress(category.title)}
+      onPress={() => handlePress(category)}
       style={styles.categoryItem}
     >
       <Text

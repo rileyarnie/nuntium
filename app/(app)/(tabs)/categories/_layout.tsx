@@ -8,7 +8,11 @@ type Props = {};
 const _layout = (props: Props) => {
   return (
     <Stack
-      screenOptions={{ headerShadowVisible: false, headerTitle: "" }}
+      screenOptions={{
+        headerShadowVisible: false,
+        // headerTitle: "",
+        headerShown: false,
+      }}
     ></Stack>
   );
 };
