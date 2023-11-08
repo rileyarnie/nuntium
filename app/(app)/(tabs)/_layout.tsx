@@ -19,6 +19,7 @@ export default (props: Props) => {
           shadowColor: "transparent",
         },
         tabBarActiveTintColor: COLORS.purplePrimary,
+        tabBarShowLabel: false,
         // headerShown: false,
       }}
       initialRouteName="(app)"

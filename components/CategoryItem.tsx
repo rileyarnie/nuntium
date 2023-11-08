@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-    // flexBasis: "50%",
-    // flexGrow: 1,
-    // flexShrink: 0,
   },
   categoryTitle: {
     fontFamily: "SFProSemibold",
