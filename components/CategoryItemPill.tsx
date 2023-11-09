@@ -20,7 +20,7 @@ const CategoryItemPill = ({ category, onPress, selectedCategory }: Props) => {
           styles.categoryItem,
           {
             backgroundColor:
-              category.title === selectedCategory
+              category.title.toLowerCase() === selectedCategory
                 ? COLORS.purplePrimary
                 : COLORS.grayLighter,
           },
@@ -31,7 +31,7 @@ const CategoryItemPill = ({ category, onPress, selectedCategory }: Props) => {
             styles.categoryTitle,
             {
               color:
-                selectedCategory === category.title
+                selectedCategory === category.title.toLowerCase()
                   ? "white"
                   : COLORS.grayPrimary,
             },
